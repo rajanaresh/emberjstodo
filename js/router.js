@@ -1,10 +1,10 @@
-Todos.Router.map(function() {
-    this.resource('todos', { path: '/' });
+App.Router.map(function() {
+    this.resource('any', { path: '/' });
 });
 
-Todos.TodosRoute = Ember.Route.extend({
+App.AnyRoute = Ember.Route.extend({
     model: function() {
-	return this.store.find('todo');
+	return this.store.find('item');
     }
 });
 

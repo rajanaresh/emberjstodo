@@ -1,9 +1,9 @@
-Todos.Todo = DS.Model.extend({
+App.Item = DS.Model.extend({
     title: DS.attr('string'),
     isCompleted: DS.attr('boolean')
 });
 
-Todos.Todo.FIXTURES = [
+App.Item.FIXTURES = [
     {
 	id: 1,
 	title: 'Learn Ember.js',
@@ -19,4 +19,4 @@ Todos.Todo.FIXTURES = [
 	title: "Profit!",
 	isCompleted: false
     }
-]
+];

@@ -1,3 +1,3 @@
-window.Todos = Ember.Application.create();
+window.App = Ember.Application.create();
 
-Todos.ApplicationManager = DS.FixtureAdapter.extend();
+App.ApplicationAdapter = DS.FixtureAdapter.extend();
