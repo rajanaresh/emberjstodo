@@ -10,15 +10,19 @@
       <section id="todoapp">
 	<header id="header">
           <h1>todos</h1>
-          <input type="text" id="new-todo" placeholder="What needs to be done?" />
+	 {{input type="text" id="new-todo" placeholder="What needs to be done?" value=newTitle action="createItem"}}
 	</header>
 
 	<section id="main">
           <ul id="todo-list">
-	    {{#each}}
+	    {{#each itemController="item"}}
             <li {{bind-attr class="isCompleted:completed"}}>
-              <input type="checkbox" class="toggle">
+	      {{#if isEditing}}
+	      <input class="edit">
+	      {{else}}
+              {{input type="checkbox" checked=isCompleted class="toggle"}}
               <label>{{title}}</label><button class="destroy"></button>
+	      {{/if}}
             </li>
 	    {{/each}}
           </ul>
@@ -28,7 +32,7 @@
 
 	<footer id="footer">
           <span id="todo-count">
-            <strong>2</strong> todos left
+            <strong>{{remaining}}</strong> {{inflection}} left
           </span>
           <ul id="filters">
             <li>
@@ -59,5 +63,7 @@
     <script src="js/application.js"></script>
     <script src="js/router.js"></script>
     <script src="js/models/todos.js"></script>
+    <script src="js/controllers/todos_controller.js"></script>
+    <script src="js/controllers/item_controller.js"></script>
   </body>
 </html>
